@@ -1,5 +1,3 @@
-import NoSleep from 'nosleep.js';
-
 const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
@@ -12,12 +10,6 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
-
-var noSleep = new NoSleep();
-
-// Enable wake lock.
-// (must be wrapped in a user input event handler e.g. a mouse or touch handler)
-document.addEventListener('touchstart', enableNoSleep, false);
 
 // Song titles
 const songs = ['Dance of Angels Zyzz Hardstyle', 'Divinity Hardstyle Zyzz Said', 'Elevate Hardstyle Zyzz Said',
@@ -32,12 +24,6 @@ let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
-
-// No sleep for mobile users
-function enableNoSleep() {
-  noSleep.enable();
-  document.removeEventListener('touchstart', enableNoSleep, false);
-}
 
 // Update song details
 function loadSong(song) {
