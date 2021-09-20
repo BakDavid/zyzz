@@ -19,11 +19,32 @@ const songs = ['Dance of Angels Zyzz Hardstyle', 'Divinity Hardstyle Zyzz Said',
                'Parallel Universe Zyzz Hardstyle Alec Benjamin - Let Me Down Slowly Remix','Resurrection Zyzz Hardstyle',
                'THE LEGACY 2020 Hardstyle Zyzz Said Philly Lexx Little','ZYZZ - LIVING FOR THE MOMENT'];
 
+shuffle(songs);
+
 // Keep track of song
 let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
+
+//randomize array elements function
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
 
 // Update song details
 function loadSong(song) {
